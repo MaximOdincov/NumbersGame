@@ -10,12 +10,12 @@ import kotlin.random.Random
 object GameRepositoryImpl: GameRepository {
     override fun generateQuestion(maxSumValue: Int, countOfOptions: Int): Question {
         val sum = Random.nextInt(1, maxSumValue+1)
-        val visibleNumber = Random.nextInt(1, sum)
+        val visibleNumber = Random.nextInt(0, sum)
         val options = HashSet<Int>().apply {
             val rightAnswer = sum-visibleNumber
             add(rightAnswer)
             while(size < countOfOptions){
-                add(Random.nextInt(1, sum))
+                add(Random.nextInt(0, sum+10))
             }
         }
         return Question(sum, visibleNumber, options.toList())
@@ -49,10 +49,10 @@ object GameRepositoryImpl: GameRepository {
             }
             Level.HARD -> {
                 GameSettings(
-                    1000,
-                    30,
                     100,
-                    60
+                    20 ,
+                    100,
+                    30
                 )
             }
         }
