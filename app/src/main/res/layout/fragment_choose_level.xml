@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#934aa7"
+    tools:context=".presentation.ChooseLevelFragment">
+
+
+    <TextView
+        android:id="@+id/chooseLevelTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_your_level"
+        android:textSize = "24sp"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        />
+
+    <Button
+        android:id="@+id/lvl_1_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:layout_margin="20dp"
+        android:backgroundTint="#ffd70b"
+        android:text="@string/level_1_easy" />
+
+    <Button
+        android:id="@+id/lvl_2_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:layout_margin="20dp"
+        android:backgroundTint="#ffd70b"
+        android:text="@string/level_2_normal" />
+
+    <Button
+        android:id="@+id/lvl_3_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:layout_margin="20dp"
+        android:backgroundTint="#ffd70b"
+        android:text="@string/level_3_hard" />
+
+    <Button
+        android:id="@+id/lvl_4_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:layout_margin="20dp"
+        android:backgroundTint="#ffd70b"
+        android:text="@string/level_4_ultra_hard" />
+</LinearLayout>

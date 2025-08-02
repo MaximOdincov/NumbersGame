@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">NumbersGame</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="let_s_play">Let\'s play</string>
+    <string name="rules">The rules of the game are very simple - on the screen you will see a math example with a missing term, pick it from the proposed. Solve as many examples as possible - good luck!</string>
+    <string name="choose_your_level">Choose your level</string>
+    <string name="level_1_easy">Level 1 - Easy</string>
+    <string name="level_4_ultra_hard">Level 4 - Ultra Hard</string>
+    <string name="level_3_hard">Level 3 - Hard</string>
+    <string name="question_mark">\?</string>
+    <string name="level_2_normal">Level 2 - Normal</string>
+    <string name="progress_answers">Right answers %s (min %s)</string>
+    <string name="game_over">Game Over</string>
+    <string name="score_answers">Your score: %s</string>
+    <string name="score_percentage">Percent of right answers: %s</string>
+    <string name="retry">Try again</string>
+    <string name="right_answers">Right answers %s from %s required</string>
+    <string name="required_percentage">Required percent of right answers: %s</string>
+    <string name="required_score">Required count of right answers: %s</string>
 </resources>
