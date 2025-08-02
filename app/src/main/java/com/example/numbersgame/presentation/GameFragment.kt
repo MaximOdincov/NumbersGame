@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.numbersgame.R
 import com.example.numbersgame.databinding.FragmentGameBinding
@@ -54,9 +55,7 @@ class GameFragment : Fragment() {
     }
 
     private fun launchToGameFinishedScreen(gameResult: GameResult){
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, GameFinishedFragment.newInstance(gameResult))
-            .commit()
+        findNavController().navigate(R.id.action_gameFragment_to_gameFinishedFragment, GameFinishedFragment.newInstance(gameResult))
     }
 
     private fun startTimer(){
@@ -118,11 +117,9 @@ class GameFragment : Fragment() {
     companion object{
         private const val KEY_LEVEL = "level"
 
-        fun newInstance(level:Level): GameFragment{
-            return GameFragment().apply {
-                arguments = Bundle().apply {
+        fun newInstance(level:Level): Bundle{
+            return Bundle().apply {
                     putParcelable(KEY_LEVEL, level)
-                }
             }
         }
     }

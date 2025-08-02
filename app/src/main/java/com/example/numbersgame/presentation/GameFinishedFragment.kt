@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.collection.intIntMapOf
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.numbersgame.R
 import com.example.numbersgame.databinding.FragmentGameBinding
@@ -32,7 +33,8 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setViews()
+        binding.gameResult = gameResult
+        binding.buttonRetry.setOnClickListener{findNavController().popBackStack()}
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -42,37 +44,12 @@ class GameFinishedFragment : Fragment() {
         }
     }
 
-    private fun setViews(){
-        var image = 0
-        if(gameResult.isWin) image = R.drawable.pass
-        else image = R.drawable.fail
-        binding.resultImg.setImageResource(image)
-        binding.scoreAnswersTextView.text =
-            getString(R.string.score_answers).format(gameResult.countOfRightAnswers.toString())
-        binding.requiredAnswersTextView.text =
-            getString(R.string.required_score).format(gameResult.gameSettings.minCountOfRightAnswers.toString())
-        binding.scorePercentageTextView.text =
-            getString(R.string.score_percentage).format((gameResult.countOfRightAnswers.toDouble()/gameResult.countOfQuestion*100).toInt().toString())
-        binding.requiredPercentageTextView.text =
-            getString(R.string.required_percentage).format(gameResult.gameSettings.minPercentsOfRightAnswers.toString())
-
-        binding.buttonRetry.setOnClickListener{launchRetry()}
-    }
-
-    private fun launchRetry(){
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, ChooseLevelFragment.newInstance())
-            .commit()
-    }
-
     companion object{
         private const val GAME_RESULT = "game_result"
 
-        fun newInstance(gameResult: GameResult): GameFinishedFragment{
-            return GameFinishedFragment().apply {
-                arguments = Bundle().apply {
+        fun newInstance(gameResult: GameResult): Bundle{
+            return Bundle().apply {
                     putParcelable(GAME_RESULT, gameResult)
-                }
             }
         }
     }
